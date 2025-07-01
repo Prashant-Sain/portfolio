@@ -1,9 +1,16 @@
-const path = require('path')
- 
-module.exports = {
+const path = require('path');
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true, // required if using /app directory routing
+  },
+  output: 'standalone', // required for Render deployment
+
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+
   images: {
     remotePatterns: [
       {
@@ -23,4 +30,6 @@ module.exports = {
       },
     ],
   },
-}
+};
+
+module.exports = nextConfig;
